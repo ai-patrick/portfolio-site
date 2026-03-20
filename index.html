@@ -1,517 +1,268 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Patrick Kilonzo — Full-Stack Engineer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Patrick Kilonzo — Full-Stack Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-  <!-- NAV -->
-  <nav id="navbar">
-    <!-- SVG glass displacement filter -->
-    <svg class="nav-glass-filter" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <filter id="nav-glass-filter" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
-          <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" seed="2" result="noise"/>
-          <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R" yChannelSelector="G" result="displaced"/>
-          <feGaussianBlur in="displaced" stdDeviation="12" result="blurred"/>
-          <feBlend in="blurred" in2="SourceGraphic" mode="normal" result="blended"/>
-          <feComposite in="blended" in2="SourceGraphic" operator="atop"/>
-        </filter>
-      </defs>
-    </svg>
-    <div class="nav-inner">
-      <a href="#" class="nav-logo">Patrick Kilonzo</a>
-      <ul class="nav-links">
-        <li><a href="#work">Proof of Work</a></li>
-        <li><a href="#blogs">Blogs</a></li>
-        <li>
-          <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle dark mode">
-            <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-              stroke="currentColor" stroke-width="1.8">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-            </svg>
-            <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-              stroke="currentColor" stroke-width="1.8">
-              <circle cx="12" cy="12" r="5" />
-              <line x1="12" y1="1" x2="12" y2="3" />
-              <line x1="12" y1="21" x2="12" y2="23" />
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-              <line x1="1" y1="12" x2="3" y2="12" />
-              <line x1="21" y1="12" x2="23" y2="12" />
-              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-            </svg>
-          </button>
-        </li>
-      </ul>
-    </div>
-  </nav>
 
-  <main>
-    <!-- HERO BANNER -->
-    <div class="hero-wrap fade-up">
-      <div class="hero-banner">
-        <svg class="hero-banner-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 240"
-          preserveAspectRatio="xMidYMid slice">
-          <!-- Sky gradient layers -->
-          <defs>
-            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#0d1b2e" />
-              <stop offset="45%" stop-color="#1e3a5f" />
-              <stop offset="75%" stop-color="#7a4a1e" />
-              <stop offset="100%" stop-color="#c4662a" />
-            </linearGradient>
-            <linearGradient id="sunGlow" cx="50%" cy="65%" r="35%" fx="50%" fy="65%" gradientUnits="objectBoundingBox"
-              id="radSun">
-              <stop offset="0%" stop-color="#ffb347" stop-opacity="0.6" />
-              <stop offset="100%" stop-color="#ffb347" stop-opacity="0" />
-            </linearGradient>
-          </defs>
-          <rect width="680" height="240" fill="url(#sky)" />
-          <!-- Sun glow -->
-          <ellipse cx="340" cy="195" rx="220" ry="100" fill="#f97316" opacity="0.18" />
-          <ellipse cx="340" cy="210" rx="120" ry="60" fill="#fb923c" opacity="0.22" />
-          <!-- Sun -->
-          <circle cx="340" cy="185" r="22" fill="#fed7aa" opacity="0.9" />
-          <circle cx="340" cy="185" r="14" fill="#fff7ed" opacity="0.95" />
-          <!-- Mountain range far -->
-          <polygon
-            points="0,170 80,100 140,125 200,85 260,115 320,70 380,105 440,80 500,110 560,90 620,115 680,95 680,200 0,200"
-            fill="#152642" opacity="0.9" />
-          <!-- Mountain range near -->
-          <polygon
-            points="0,200 60,155 100,170 160,140 220,165 280,135 340,155 400,138 460,160 520,140 580,158 640,145 680,162 680,240 0,240"
-            fill="#0d1b2e" opacity="0.98" />
-          <!-- Horizon glow -->
-          <rect x="0" y="183" width="680" height="8" fill="#f97316" opacity="0.25" />
-          <!-- Stars -->
-          <circle cx="60" cy="30" r="1" fill="white" opacity="0.7" />
-          <circle cx="120" cy="18" r="1.2" fill="white" opacity="0.6" />
-          <circle cx="200" cy="40" r="0.8" fill="white" opacity="0.8" />
-          <circle cx="310" cy="22" r="1" fill="white" opacity="0.5" />
-          <circle cx="450" cy="35" r="1.1" fill="white" opacity="0.7" />
-          <circle cx="530" cy="15" r="0.9" fill="white" opacity="0.6" />
-          <circle cx="610" cy="42" r="1" fill="white" opacity="0.8" />
-          <circle cx="660" cy="25" r="1.2" fill="white" opacity="0.5" />
-          <circle cx="85" cy="60" r="0.7" fill="white" opacity="0.4" />
-          <circle cx="390" cy="48" r="0.8" fill="white" opacity="0.5" />
-        </svg>
-        <div class="hero-overlay-text">
-          Build &bull; Ship &bull; Learn &bull; Repeat
-        </div>
-      </div>
-
-      <!-- PROFILE ROW -->
-      <div class="profile-row">
-        <div class="avatar-wrap">
-          <div class="avatar">P</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- PROFILE DETAILS -->
-    <div style="margin-top: 4px" class="fade-up">
-      <h1 class="profile-name">Patrick Kilonzo</h1>
-      <p class="profile-subtitle">
-        23 &middot; Full-Stack Engineer &middot; AI-expert &middot; Nerd
-      </p>
-
-      <div class="social-row">
-        <a href="https://github.com/" target="_blank" rel="noopener" class="social-btn">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z" />
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Patrick Kilonzo</a>
+    <ul class="nav-links">
+      <li><a href="#work">Proof of Work</a></li>
+      <li><a href="#blogs">Blogs</a></li>
+      <li>
+        <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle dark mode">
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
           </svg>
-          GitHub
-        </a>
-        <a href="https://twitter.com/" target="_blank" rel="noopener" class="social-btn">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+            <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
           </svg>
-          Twitter / X
-        </a>
-        <a href="https://www.linkedin.com/in/partrick-mbithi-05167b32b/" target="_blank" rel="noopener"
-          class="social-btn">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-          </svg>
-          LinkedIn
-        </a>
-        <a href="/cdn-cgi/l/email-protection#0979687d66646b607d61603c496e64686065276a6664" class="social-btn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-            stroke-linejoin="round">
-            <rect x="2" y="4" width="20" height="16" rx="2" />
-            <path d="M22 7l-10 7L2 7" />
-          </svg>
-          Email
-        </a>
+        </button>
+      </li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile" id="nav-mobile">
+    <a href="#work" onclick="closeMobile()">Proof of Work</a>
+    <a href="#blogs" onclick="closeMobile()">Blogs</a>
+  </div>
+</nav>
+<div class="nav-spacer"></div>
+
+<main>
+  <!-- HERO BANNER -->
+  <div class="hero-wrap fade-up">
+    <div class="hero-banner">
+      <svg class="hero-banner-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 240" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#0d1b2e"/>
+            <stop offset="45%" stop-color="#1e3a5f"/>
+            <stop offset="75%" stop-color="#7a4a1e"/>
+            <stop offset="100%" stop-color="#c4662a"/>
+          </linearGradient>
+        </defs>
+        <rect width="680" height="240" fill="url(#sky)"/>
+        <ellipse cx="340" cy="195" rx="220" ry="100" fill="#f97316" opacity="0.18"/>
+        <ellipse cx="340" cy="210" rx="120" ry="60" fill="#fb923c" opacity="0.22"/>
+        <circle cx="340" cy="185" r="22" fill="#fed7aa" opacity="0.9"/>
+        <circle cx="340" cy="185" r="14" fill="#fff7ed" opacity="0.95"/>
+        <polygon points="0,170 80,100 140,125 200,85 260,115 320,70 380,105 440,80 500,110 560,90 620,115 680,95 680,200 0,200" fill="#152642" opacity="0.9"/>
+        <polygon points="0,200 60,155 100,170 160,140 220,165 280,135 340,155 400,138 460,160 520,140 580,158 640,145 680,162 680,240 0,240" fill="#0d1b2e" opacity="0.98"/>
+        <rect x="0" y="183" width="680" height="8" fill="#f97316" opacity="0.25"/>
+        <circle cx="60" cy="30" r="1" fill="white" opacity="0.7"/>
+        <circle cx="120" cy="18" r="1.2" fill="white" opacity="0.6"/>
+        <circle cx="200" cy="40" r="0.8" fill="white" opacity="0.8"/>
+        <circle cx="310" cy="22" r="1" fill="white" opacity="0.5"/>
+        <circle cx="450" cy="35" r="1.1" fill="white" opacity="0.7"/>
+        <circle cx="530" cy="15" r="0.9" fill="white" opacity="0.6"/>
+        <circle cx="610" cy="42" r="1" fill="white" opacity="0.8"/>
+        <circle cx="660" cy="25" r="1.2" fill="white" opacity="0.5"/>
+        <circle cx="85" cy="60" r="0.7" fill="white" opacity="0.4"/>
+        <circle cx="390" cy="48" r="0.8" fill="white" opacity="0.5"/>
+      </svg>
+      <div class="hero-overlay-text">Build &bull; Ship &bull; Learn &bull; Repeat</div>
+    </div>
+    <div class="profile-row">
+      <div class="avatar-wrap">
+        <div class="avatar">P</div>
       </div>
     </div>
+  </div>
 
-    <!-- ABOUT -->
-    <div class="about-section fade-up">
-      <ul class="about-text" style="text-align: left; list-style-position: outside; padding-left: 20px;">
-        <li style="margin-bottom: 12px;">Engineers full-stack solutions from scratch — frontend to backend, idea to deployment.</li>
-        <li style="margin-bottom: 12px;">Builds pixel-perfect React interfaces and scalable Node.js APIs, deployed to the cloud.</li>
-        <li style="margin-bottom: 12px;">Architects clean, maintainable codebases with a sharp focus on developer experience.</li>
-        <li style="margin-bottom: 12px;">Ships products that actually work — no shortcuts, no half-measures.</li>
-        <li>Explores distributed systems, open source contributions, and technical writing off the clock.</li>
-      </ul>
-    </div>
-
-    <!-- TECH STACK -->
-    <div class="section-header fade-up" id="stack">
-      <p class="section-title">Tech stack I use</p>
-      <p class="section-sub">
-        Tools and technologies I work with to ship meaningful products.
-      </p>
-    </div>
-
-    <div class="tech-grid fade-up">
-      <!-- Next.js -->
-      <div class="tech-item">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path
-            d="M11.572 0c-.176 0-.31.001-.358.007a19.76 19.76 0 0 1-.364.033C7.443.346 4.25 2.185 2.228 5.012a11.875 11.875 0 0 0-2.119 5.243c-.096.659-.108.854-.108 1.747s.012 1.089.108 1.748c.652 4.506 3.86 8.292 8.209 9.695.779.25 1.6.422 2.534.525.363.04 1.935.04 2.299 0 1.611-.178 2.977-.577 4.323-1.264.207-.106.247-.134.219-.158-.02-.013-.9-1.193-1.955-2.62l-1.919-2.592-2.404-3.558a338.739 338.739 0 0 0-2.422-3.556c-.009-.002-.018 1.579-.023 3.51-.007 3.38-.01 3.515-.052 3.595a.426.426 0 0 1-.206.214c-.075.037-.14.044-.495.044H7.81l-.108-.068a.438.438 0 0 1-.157-.171l-.05-.106.006-4.703.007-4.705.072-.092a.645.645 0 0 1 .174-.143c.096-.047.134-.052.54-.052.479 0 .558.019.683.155.035.038 1.337 1.999 2.895 4.361a10760.433 10760.433 0 0 0 4.735 7.17l1.9 2.879.096-.063a12.317 12.317 0 0 0 2.466-2.163 11.944 11.944 0 0 0 2.824-6.134c.096-.66.108-.854.108-1.748 0-.893-.012-1.088-.108-1.747-.652-4.506-3.859-8.292-8.208-9.695a12.597 12.597 0 0 0-2.499-.523A33.119 33.119 0 0 0 11.573 0zm4.069 7.217c.347 0 .408.005.486.047a.473.473 0 0 1 .237.277c.018.06.023 1.365.018 4.304l-.006 4.218-.744-1.14-.746-1.14v-3.066c0-1.982.01-3.097.023-3.15a.478.478 0 0 1 .233-.296c.096-.05.13-.054.5-.054z" />
-        </svg>
-        <span class="tech-name">Next.js</span>
-      </div>
-      <!-- React -->
-      <div class="tech-item">
-        <svg viewBox="0 0 24 24" fill="none">
-          <circle cx="12" cy="12" r="2.25" fill="#61DAFB" />
-          <ellipse cx="12" cy="12" rx="10.5" ry="4" stroke="#61DAFB" stroke-width="1.2" fill="none" />
-          <ellipse cx="12" cy="12" rx="10.5" ry="4" stroke="#61DAFB" stroke-width="1.2" fill="none"
-            transform="rotate(60 12 12)" />
-          <ellipse cx="12" cy="12" rx="10.5" ry="4" stroke="#61DAFB" stroke-width="1.2" fill="none"
-            transform="rotate(120 12 12)" />
-        </svg>
-        <span class="tech-name">React</span>
-      </div>
-      <!-- TypeScript -->
-      <div class="tech-item">
-        <svg viewBox="0 0 24 24" fill="none">
-          <rect width="24" height="24" rx="3" fill="#3178C6" />
-          <text x="3" y="18" font-size="12" font-weight="700" font-family="monospace" fill="white">
-            TS
-          </text>
-        </svg>
-        <span class="tech-name">TypeScript</span>
-      </div>
-      <!-- Node.js -->
-      <div class="tech-item">
-        <svg viewBox="0 0 24 24" fill="#339933">
-          <path
-            d="M11.998 1.958l-9.9 5.713v11.428l9.9 5.713 9.9-5.713V7.671l-9.9-5.713zm0 1.715l8.185 4.724v9.45l-8.185 4.724-8.185-4.724v-9.45L12 3.673h-.002zm0 2.148c-.44 0-.88.113-1.262.337l-4.35 2.511c-.768.442-1.262 1.271-1.262 2.157v5.016c0 .886.494 1.715 1.262 2.157l4.35 2.512c.764.44 1.758.44 2.522 0l4.35-2.512c.77-.442 1.264-1.271 1.264-2.157V10.826c0-.886-.494-1.715-1.264-2.157l-4.35-2.511a2.558 2.558 0 0 0-1.26-.337z" />
-        </svg>
-        <span class="tech-name">Node.js</span>
-      </div>
-      <!-- Express -->
-      <div class="tech-item">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path
-            d="M24 18.588a1.529 1.529 0 0 1-1.895-.72l-3.45-4.771-.5-.667-4.003 5.444a1.466 1.466 0 0 1-1.802.708l5.158-6.92-4.798-6.251a1.595 1.595 0 0 1 1.9.666l3.576 4.83 3.596-4.81a1.435 1.435 0 0 1 1.788-.668L21.708 11l-2.522 3.283a.666.666 0 0 0 0 .994l4.804 6.308-.01.003h.02zm-13.961 0a1.474 1.474 0 0 1-1.848-.708l-3.45-4.771-.5-.667-4.003 5.444A1.466 1.466 0 0 1 .436 17.15l5.158-6.92-4.798-6.251a1.595 1.595 0 0 1 1.9.666l3.576 4.83 3.596-4.81a1.435 1.435 0 0 1 1.788-.668L7.747 11l-2.522 3.283a.666.666 0 0 0 0 .994l4.804 6.308-.01.003h.02z" />
-        </svg>
-        <span class="tech-name">Express</span>
-      </div>
-      <!-- Tailwind -->
-      <div class="tech-item">
-        <svg viewBox="0 0 24 24" fill="#06B6D4">
-          <path
-            d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z" />
-        </svg>
-        <span class="tech-name">Tailwind CSS</span>
-      </div>
-      <!-- PostgreSQL -->
-      <div class="tech-item">
-        <svg viewBox="0 0 24 24" fill="none">
-          <path
-            d="M17.128 0a10.134 10.134 0 0 0-2.755.403C13.095.72 12.3 1.2 12.3 1.2c-.493.32-.989.624-1.492.905C9.4 2.986 8.2 3.6 7.2 4.493c-.677.588-1.448 1.4-1.728 2.07-.28.67-.28 1.395-.14 2.07.14.675.42 1.302.7 1.92l.42.954c.28.672.56 1.352.7 2.07.14.718.14 1.47-.14 2.19-.28.72-.84 1.435-1.68 1.996.56.334 1.12.536 1.68.622.56.086 1.12.086 1.68 0 .56-.086 1.12-.258 1.68-.483.56-.225 1.12-.537 1.68-.95.56-.413 1.12-.95 1.68-1.665.56-.716.98-1.587 1.26-2.51.28-.924.42-1.935.28-2.9-.14-.966-.56-1.935-1.26-2.726-.7-.79-1.68-1.42-2.8-1.72.14-.43.42-.86.7-1.29.28-.43.7-.86 1.26-1.24.56-.38 1.26-.718 2.1-.924.84-.205 1.82-.27 2.8-.086 1.68.31 3.22 1.205 4.2 2.52.98 1.316 1.4 2.952 1.26 4.52-.14 1.57-.84 3.07-1.96 4.21-1.12 1.14-2.66 1.92-4.34 2.15.28.43.56.85.84 1.24.28.39.56.76.84 1.11l.84 1.11c.28.39.56.76.84 1.1.28.34.56.66.84.98.28.32.56.61.84.9-.98.26-1.96.39-2.94.39-.98 0-1.96-.13-2.94-.39-.98-.26-1.96-.65-2.94-1.2-.98-.55-1.96-1.24-2.94-2.07-.84.26-1.68.46-2.52.6-.84.14-1.68.19-2.52.14-.84-.05-1.68-.18-2.52-.4-.84-.22-1.68-.56-2.38-1.04.56-.43 1.12-.86 1.68-1.31.56-.45 1.12-.93 1.68-1.44.56-.51 1.12-1.08 1.54-1.72.42-.64.7-1.36.7-2.09 0-.73-.28-1.46-.7-2.09-.42-.63-.98-1.19-1.54-1.72-.56-.53-1.12-1.01-1.68-1.46-.56-.45-1.12-.88-1.68-1.31.7-.48 1.54-.82 2.38-1.04.84-.22 1.68-.35 2.52-.4.84-.05 1.68 0 2.52.14.84.14 1.68.34 2.52.6"
-            fill="#336791" />
-        </svg>
-        <span class="tech-name">PostgreSQL</span>
-      </div>
-      <!-- Docker -->
-      <div class="tech-item">
-        <svg viewBox="0 0 24 24" fill="#2496ED">
-          <path
-            d="M13.983 11.078h2.119a.186.186 0 0 0 .186-.185V9.006a.186.186 0 0 0-.186-.186h-2.119a.185.185 0 0 0-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 0 0 .186-.186V3.574a.186.186 0 0 0-.186-.185h-2.118a.185.185 0 0 0-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 0 0 .186-.186V6.29a.186.186 0 0 0-.186-.185h-2.118a.185.185 0 0 0-.185.185v1.887c0 .102.082.185.185.186m-2.93 0h2.12a.186.186 0 0 0 .184-.186V6.29a.185.185 0 0 0-.185-.185H8.1a.185.185 0 0 0-.185.185v1.887c0 .102.083.185.185.186m-2.964 0h2.119a.186.186 0 0 0 .185-.186V6.29a.185.185 0 0 0-.185-.185H5.136a.186.186 0 0 0-.186.185v1.887c0 .102.084.185.186.186m5.893 2.715h2.118a.186.186 0 0 0 .186-.185V9.006a.186.186 0 0 0-.186-.186h-2.118a.185.185 0 0 0-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 0 0 .184-.185V9.006a.185.185 0 0 0-.184-.186h-2.12a.185.185 0 0 0-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 0 0 .185-.185V9.006a.185.185 0 0 0-.184-.186h-2.12a.186.186 0 0 0-.186.186v1.887c0 .102.084.185.186.185m-2.92 0h2.12a.185.185 0 0 0 .184-.185V9.006a.185.185 0 0 0-.184-.186h-2.12a.185.185 0 0 0-.185.185v1.888c0 .102.083.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51-.338.001-.676.03-1.01.087-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.751.751 0 0 0-.75.748 11.376 11.376 0 0 0 .692 4.062c.545 1.428 1.355 2.48 2.41 3.124 1.18.723 3.1 1.137 5.275 1.137.983.003 1.963-.086 2.93-.266a12.248 12.248 0 0 0 3.823-1.389c.98-.567 1.86-1.288 2.61-2.136 1.252-1.418 1.998-2.997 2.553-4.4h.221c1.372 0 2.215-.549 2.68-1.009.309-.293.55-.65.707-1.046l.098-.288Z" />
-        </svg>
-        <span class="tech-name">Docker</span>
-      </div>
-      <!-- Git -->
-      <div class="tech-item">
-        <svg viewBox="0 0 24 24" fill="#F05032">
-          <path
-            d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.215 1.379-.07 1.889.441.516.515.658 1.258.438 1.9l2.658 2.66c.645-.223 1.387-.078 1.9.435.721.72.721 1.884 0 2.604-.719.719-1.881.719-2.6 0-.539-.541-.674-1.337-.404-1.996L12.86 8.955v6.525c.176.086.342.203.488.348.713.721.713 1.883 0 2.6-.719.721-1.889.721-2.609 0-.719-.719-.719-1.879 0-2.598.182-.18.387-.316.605-.406V8.835c-.217-.091-.424-.222-.604-.401-.545-.545-.676-1.342-.396-2.009L7.636 3.7.45 10.881c-.6.605-.6 1.584 0 2.189l10.48 10.477c.604.604 1.582.604 2.186 0l10.43-10.43c.605-.603.605-1.582 0-2.187" />
-        </svg>
-        <span class="tech-name">Git</span>
-      </div>
-      <!-- Python -->
-      <div class="tech-item">
-        <svg viewBox="0 0 24 24" fill="none">
-          <defs>
-            <linearGradient id="pyg1" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#366A96" />
-              <stop offset="100%" stop-color="#3E85B4" />
-            </linearGradient>
-            <linearGradient id="pyg2" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#F9C440" />
-              <stop offset="100%" stop-color="#FFE872" />
-            </linearGradient>
-          </defs>
-          <path
-            d="M11.99 1.5c-5.35 0-5.02 2.32-5.02 2.32L6.98 6.5h5.1v.75H4.49S1.5 6.93 1.5 12.37c0 5.44 3.01 5.25 3.01 5.25h1.8v-2.52s-.1-3.01 2.96-3.01h5.1s2.87.05 2.87-2.77V5.02s.43-3.52-5.25-3.52zm-2.85 2.03c.52 0 .94.42.94.94s-.42.94-.94.94-.94-.42-.94-.94.42-.94.94-.94z"
-            fill="url(#pyg1)" />
-          <path
-            d="M12.01 22.5c5.35 0 5.02-2.32 5.02-2.32l-.01-2.68H11.9v-.75h7.6s2.99.32 2.99-5.12c0-5.44-3.01-5.25-3.01-5.25h-1.8v2.52s.1 3.01-2.96 3.01h-5.1s-2.87-.05-2.87 2.77v4.25s-.43 3.57 5.26 3.57zm2.85-2.03c-.52 0-.94-.42-.94-.94s.42-.94.94-.94.94.42.94.94-.42.94-.94.94z"
-            fill="url(#pyg2)" />
-        </svg>
-        <span class="tech-name">Python</span>
-      </div>
-    </div>
-
-    <!-- LOGO LOOP SECTION -->
-    <div class="logoloop-section section-header">
-      <p class="section-title">Also familiar with</p>
-      <p class="section-sub">Other tools in the orbit.</p>
-    </div>
-
-    <div class="logoloop-wrap" id="ll-container" style="padding: 16px 0">
-      <div class="ll-track" id="ll-track">
-        <!-- Items will be injected by JS -->
-      </div>
-    </div>
-
-    <!-- GITHUB CONTRIBUTIONS -->
-    <div class="github-section section-header" id="github">
-      <p class="section-title">GitHub Contributions</p>
-      <p class="github-handle">
-        <a href="https://github.com/" target="_blank" rel="noopener">@dev-patrick-kz</a>
-      </p>
-    </div>
-
-    <div class="contrib-card">
-      <div class="contrib-img-wrap">
-        <img id="contrib-chart" src="https://ghchart.rshah.org/3b6d11/ai-patrick"
-          alt="Patrick Kilonzo's GitHub contribution chart" style="width: 100%; display: block; border-radius: 6px"
-          onerror="
-              document.getElementById('contrib-fallback').style.display =
-                'flex';
-              this.style.display = 'none';
-            " />
-        <div id="contrib-fallback" style="
-              display: none;
-              align-items: center;
-              justify-content: center;
-              padding: 32px;
-              color: var(--text-muted);
-              font-size: 13px;
-              gap: 8px;
-              flex-direction: column;
-            ">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="opacity: 0.4">
-            <path
-              d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z" />
-          </svg>
-          <span>Could not load contribution chart.
-            <a href="https://github.com/ai-patrick" target="_blank" rel="noopener"
-              style="color: var(--text-secondary)">View on GitHub →</a></span>
-        </div>
-      </div>
-      <div class="contrib-footer" style="min-width: unset; margin-top: 12px">
-        <a href="https://github.com/ai-patrick" target="_blank" rel="noopener" style="
-              font-size: 12px;
-              color: var(--text-muted);
-              text-decoration: none;
-              border-bottom: 1px solid var(--border);
-              transition: color 0.2s;
-            ">View full profile on GitHub</a>
-        <div class="legend">
-          <span>Less</span>
-          <div class="legend-cell" style="background: #e8e6e0"></div>
-          <div class="legend-cell" style="background: #c0dd97"></div>
-          <div class="legend-cell" style="background: #97c459"></div>
-          <div class="legend-cell" style="background: #639922"></div>
-          <div class="legend-cell" style="background: #3b6d11"></div>
-          <span>More</span>
-        </div>
-      </div>
-    </div>
-
-    <p style="
-          text-align: center;
-          font-size: 13px;
-          color: var(--text-muted);
-          margin-top: 48px;
-          font-style: italic;
-          font-weight: 300;
-        ">
-      If you've read this far, you might be interested in what I do.
-    </p>
-
-    <!-- PROOF OF WORK -->
-    <div class="section-header" id="work" style="margin-top: 64px">
-      <p class="section-title">Proof of Work</p>
-      <p class="section-sub">Things I've shipped that I'm proud of.</p>
-    </div>
-
-    <div class="pow-grid" style="margin-top: 20px">
-      <a href="#" class="pow-card">
-        <span class="pow-tag">Full-Stack</span>
-        <h3 class="pow-title">
-          DevCollab — Real-time Pair Programming Platform
-        </h3>
-        <p class="pow-desc">
-          A collaborative coding environment with live cursors, chat, and
-          shared terminal sessions. Built for remote engineering teams who
-          refuse to compromise on flow state.
-        </p>
-        <div class="pow-stack">
-          <span>Next.js</span><span>WebSockets</span><span>Node.js</span><span>Redis</span><span>PostgreSQL</span>
-        </div>
+  <!-- PROFILE DETAILS -->
+  <div style="margin-top: 4px;" class="fade-up">
+    <h1 class="profile-name">Patrick Kilonzo</h1>
+    <p class="profile-subtitle">23 &middot; Full-Stack Engineer &middot; Researcher &middot; Nerd</p>
+    <div class="social-row">
+      <a href="https://github.com/" target="_blank" rel="noopener" class="social-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        GitHub
       </a>
-      <a href="#" class="pow-card">
-        <span class="pow-tag">API / Backend</span>
-        <h3 class="pow-title">
-          PesaFlow — Payment Routing API for East Africa
-        </h3>
-        <p class="pow-desc">
-          A unified payments API abstracting M-Pesa, Airtel Money, and card
-          networks into a single clean interface. Handles retries, webhooks,
-          and reconciliation automatically.
-        </p>
-        <div class="pow-stack">
-          <span>Express</span><span>TypeScript</span><span>PostgreSQL</span><span>Docker</span>
-        </div>
+      <a href="https://twitter.com/" target="_blank" rel="noopener" class="social-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Twitter / X
       </a>
-      <a href="#" class="pow-card">
-        <span class="pow-tag">Frontend</span>
-        <h3 class="pow-title">
-          LogoLoop — Infinite Scroll Animation Component
-        </h3>
-        <p class="pow-desc">
-          A zero-dependency React component for smooth, configurable marquee
-          animations. Supports hover pause, vertical/horizontal directions,
-          and custom render props.
-        </p>
-        <div class="pow-stack">
-          <span>React</span><span>TypeScript</span><span>CSS Animations</span>
-        </div>
+      <a href="https://linkedin.com/" target="_blank" rel="noopener" class="social-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+      <a href="/cdn-cgi/l/email-protection#0979687d66646b607d61603c496e64686065276a6664" class="social-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+        Email
       </a>
     </div>
+  </div>
 
-    <!-- BLOGS -->
-    <div class="section-header" id="blogs" style="margin-top: 64px">
-      <p class="section-title">Blogs</p>
-      <p class="section-sub">Writing about what I build and what I learn.</p>
+  <!-- ABOUT -->
+  <div class="about-section fade-up">
+    <ul class="about-text" style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;">
+      <li><strong>Engineers</strong> full-stack solutions from scratch — frontend to backend, idea to deployment.</li>
+      <li><strong>Builds</strong> pixel-perfect React interfaces and scalable Node.js APIs, deployed to the cloud.</li>
+      <li><strong>Architects</strong> clean, maintainable codebases with a sharp focus on developer experience.</li>
+      <li><strong>Ships</strong> products that actually work — no shortcuts, no half-measures.</li>
+      <li><strong>Explores</strong> distributed systems, open source contributions, and technical writing off the clock.</li>
+    </ul>
+  </div>
+
+  <!-- TECH STACK -->
+  <div class="section-header fade-up" id="stack">
+    <p class="section-title">Tech stack I use</p>
+    <p class="section-sub">Tools and technologies I work with to ship meaningful products.</p>
+  </div>
+
+  <div class="tech-grid fade-up">
+    <div class="tech-item">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.572 0c-.176 0-.31.001-.358.007a19.76 19.76 0 0 1-.364.033C7.443.346 4.25 2.185 2.228 5.012a11.875 11.875 0 0 0-2.119 5.243c-.096.659-.108.854-.108 1.747s.012 1.089.108 1.748c.652 4.506 3.86 8.292 8.209 9.695.779.25 1.6.422 2.534.525.363.04 1.935.04 2.299 0 1.611-.178 2.977-.577 4.323-1.264.207-.106.247-.134.219-.158-.02-.013-.9-1.193-1.955-2.62l-1.919-2.592-2.404-3.558a338.739 338.739 0 0 0-2.422-3.556c-.009-.002-.018 1.579-.023 3.51-.007 3.38-.01 3.515-.052 3.595a.426.426 0 0 1-.206.214c-.075.037-.14.044-.495.044H7.81l-.108-.068a.438.438 0 0 1-.157-.171l-.05-.106.006-4.703.007-4.705.072-.092a.645.645 0 0 1 .174-.143c.096-.047.134-.052.54-.052.479 0 .558.019.683.155.035.038 1.337 1.999 2.895 4.361a10760.433 10760.433 0 0 0 4.735 7.17l1.9 2.879.096-.063a12.317 12.317 0 0 0 2.466-2.163 11.944 11.944 0 0 0 2.824-6.134c.096-.66.108-.854.108-1.748 0-.893-.012-1.088-.108-1.747-.652-4.506-3.859-8.292-8.208-9.695a12.597 12.597 0 0 0-2.499-.523A33.119 33.119 0 0 0 11.573 0zm4.069 7.217c.347 0 .408.005.486.047a.473.473 0 0 1 .237.277c.018.06.023 1.365.018 4.304l-.006 4.218-.744-1.14-.746-1.14v-3.066c0-1.982.01-3.097.023-3.15a.478.478 0 0 1 .233-.296c.096-.05.13-.054.5-.054z"/></svg>
+      <span class="tech-name">Next.js</span>
     </div>
-
-    <div class="blog-list">
-      <a href="#" class="blog-item">
-        <div class="blog-item-left">
-          <div class="blog-item-title">
-            Why I stopped using useEffect for data fetching
-          </div>
-          <div class="blog-item-date">Mar 2025</div>
-        </div>
-        <span class="blog-item-arrow">→</span>
-      </a>
-      <a href="#" class="blog-item">
-        <div class="blog-item-left">
-          <div class="blog-item-title">
-            Building a payment API that handles East African edge cases
-          </div>
-          <div class="blog-item-date">Jan 2025</div>
-        </div>
-        <span class="blog-item-arrow">→</span>
-      </a>
-      <a href="#" class="blog-item">
-        <div class="blog-item-left">
-          <div class="blog-item-title">
-            The case for co-locating your database migrations
-          </div>
-          <div class="blog-item-date">Nov 2024</div>
-        </div>
-        <span class="blog-item-arrow">→</span>
-      </a>
-      <a href="#" class="blog-item">
-        <div class="blog-item-left">
-          <div class="blog-item-title">
-            Docker Compose for local dev: a practical guide
-          </div>
-          <div class="blog-item-date">Sep 2024</div>
-        </div>
-        <span class="blog-item-arrow">→</span>
-      </a>
+    <div class="tech-item">
+      <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="2.25" fill="#61DAFB"/><ellipse cx="12" cy="12" rx="10.5" ry="4" stroke="#61DAFB" stroke-width="1.2" fill="none"/><ellipse cx="12" cy="12" rx="10.5" ry="4" stroke="#61DAFB" stroke-width="1.2" fill="none" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10.5" ry="4" stroke="#61DAFB" stroke-width="1.2" fill="none" transform="rotate(120 12 12)"/></svg>
+      <span class="tech-name">React</span>
     </div>
-
-    <!-- CTA -->
-    <div class="cta-section">
-      <p class="cta-line">
-        If you've read this far, you might be interested in what I do.
-      </p>
-      <a href="/cdn-cgi/l/email-protection#c4b4a5b0aba9a6adb0acadf184a3a9a5ada8eaa7aba9" class="cta-btn">
-        <div class="avatar-mini">P</div>
-        Book a Free Call
-      </a>
+    <div class="tech-item">
+      <svg viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="3" fill="#3178C6"/><text x="3" y="18" font-size="12" font-weight="700" font-family="monospace" fill="white">TS</text></svg>
+      <span class="tech-name">TypeScript</span>
     </div>
-  </main>
+    <div class="tech-item">
+      <svg viewBox="0 0 24 24" fill="#339933"><path d="M11.998 1.958l-9.9 5.713v11.428l9.9 5.713 9.9-5.713V7.671l-9.9-5.713zm0 1.715l8.185 4.724v9.45l-8.185 4.724-8.185-4.724v-9.45L12 3.673h-.002zm0 2.148c-.44 0-.88.113-1.262.337l-4.35 2.511c-.768.442-1.262 1.271-1.262 2.157v5.016c0 .886.494 1.715 1.262 2.157l4.35 2.512c.764.44 1.758.44 2.522 0l4.35-2.512c.77-.442 1.264-1.271 1.264-2.157V10.826c0-.886-.494-1.715-1.264-2.157l-4.35-2.511a2.558 2.558 0 0 0-1.26-.337z"/></svg>
+      <span class="tech-name">Node.js</span>
+    </div>
+    <div class="tech-item">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 18.588a1.529 1.529 0 0 1-1.895-.72l-3.45-4.771-.5-.667-4.003 5.444a1.466 1.466 0 0 1-1.802.708l5.158-6.92-4.798-6.251a1.595 1.595 0 0 1 1.9.666l3.576 4.83 3.596-4.81a1.435 1.435 0 0 1 1.788-.668L21.708 11l-2.522 3.283a.666.666 0 0 0 0 .994l4.804 6.308-.01.003h.02zm-13.961 0a1.474 1.474 0 0 1-1.848-.708l-3.45-4.771-.5-.667-4.003 5.444A1.466 1.466 0 0 1 .436 17.15l5.158-6.92-4.798-6.251a1.595 1.595 0 0 1 1.9.666l3.576 4.83 3.596-4.81a1.435 1.435 0 0 1 1.788-.668L7.747 11l-2.522 3.283a.666.666 0 0 0 0 .994l4.804 6.308-.01.003h.02z"/></svg>
+      <span class="tech-name">Express</span>
+    </div>
+    <div class="tech-item">
+      <svg viewBox="0 0 24 24" fill="#06B6D4"><path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"/></svg>
+      <span class="tech-name">Tailwind CSS</span>
+    </div>
+    <div class="tech-item">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M17.128 0a10.134 10.134 0 0 0-2.755.403C13.095.72 12.3 1.2 12.3 1.2c-.493.32-.989.624-1.492.905C9.4 2.986 8.2 3.6 7.2 4.493c-.677.588-1.448 1.4-1.728 2.07-.28.67-.28 1.395-.14 2.07.14.675.42 1.302.7 1.92l.42.954c.28.672.56 1.352.7 2.07.14.718.14 1.47-.14 2.19-.28.72-.84 1.435-1.68 1.996.56.334 1.12.536 1.68.622.56.086 1.12.086 1.68 0 .56-.086 1.12-.258 1.68-.483.56-.225 1.12-.537 1.68-.95.56-.413 1.12-.95 1.68-1.665.56-.716.98-1.587 1.26-2.51.28-.924.42-1.935.28-2.9-.14-.966-.56-1.935-1.26-2.726-.7-.79-1.68-1.42-2.8-1.72.14-.43.42-.86.7-1.29.28-.43.7-.86 1.26-1.24.56-.38 1.26-.718 2.1-.924.84-.205 1.82-.27 2.8-.086 1.68.31 3.22 1.205 4.2 2.52.98 1.316 1.4 2.952 1.26 4.52-.14 1.57-.84 3.07-1.96 4.21-1.12 1.14-2.66 1.92-4.34 2.15.28.43.56.85.84 1.24.28.39.56.76.84 1.11l.84 1.11c.28.39.56.76.84 1.1.28.34.56.66.84.98.28.32.56.61.84.9-.98.26-1.96.39-2.94.39-.98 0-1.96-.13-2.94-.39-.98-.26-1.96-.65-2.94-1.2-.98-.55-1.96-1.24-2.94-2.07-.84.26-1.68.46-2.52.6-.84.14-1.68.19-2.52.14-.84-.05-1.68-.18-2.52-.4-.84-.22-1.68-.56-2.38-1.04.56-.43 1.12-.86 1.68-1.31.56-.45 1.12-.93 1.68-1.44.56-.51 1.12-1.08 1.54-1.72.42-.64.7-1.36.7-2.09 0-.73-.28-1.46-.7-2.09-.42-.63-.98-1.19-1.54-1.72-.56-.53-1.12-1.01-1.68-1.46-.56-.45-1.12-.88-1.68-1.31.7-.48 1.54-.82 2.38-1.04.84-.22 1.68-.35 2.52-.4.84-.05 1.68 0 2.52.14.84.14 1.68.34 2.52.6" fill="#336791"/></svg>
+      <span class="tech-name">PostgreSQL</span>
+    </div>
+    <div class="tech-item">
+      <svg viewBox="0 0 24 24" fill="#2496ED"><path d="M13.983 11.078h2.119a.186.186 0 0 0 .186-.185V9.006a.186.186 0 0 0-.186-.186h-2.119a.185.185 0 0 0-.185.185v1.888c0 .102.083.185.185.185m-2.954-5.43h2.118a.186.186 0 0 0 .186-.186V3.574a.186.186 0 0 0-.186-.185h-2.118a.185.185 0 0 0-.185.185v1.888c0 .102.082.185.185.185m0 2.716h2.118a.187.187 0 0 0 .186-.186V6.29a.186.186 0 0 0-.186-.185h-2.118a.185.185 0 0 0-.185.185v1.887c0 .102.082.185.185.186m-2.93 0h2.12a.186.186 0 0 0 .184-.186V6.29a.185.185 0 0 0-.185-.185H8.1a.185.185 0 0 0-.185.185v1.887c0 .102.083.185.185.186m-2.964 0h2.119a.186.186 0 0 0 .185-.186V6.29a.185.185 0 0 0-.185-.185H5.136a.186.186 0 0 0-.186.185v1.887c0 .102.084.185.186.186m5.893 2.715h2.118a.186.186 0 0 0 .186-.185V9.006a.186.186 0 0 0-.186-.186h-2.118a.185.185 0 0 0-.185.185v1.888c0 .102.082.185.185.185m-2.93 0h2.12a.185.185 0 0 0 .184-.185V9.006a.185.185 0 0 0-.184-.186h-2.12a.185.185 0 0 0-.184.185v1.888c0 .102.083.185.185.185m-2.964 0h2.119a.185.185 0 0 0 .185-.185V9.006a.185.185 0 0 0-.184-.186h-2.12a.186.186 0 0 0-.186.186v1.887c0 .102.084.185.186.185m-2.92 0h2.12a.185.185 0 0 0 .184-.185V9.006a.185.185 0 0 0-.184-.186h-2.12a.185.185 0 0 0-.185.185v1.888c0 .102.083.185.185.185M23.763 9.89c-.065-.051-.672-.51-1.954-.51-.338.001-.676.03-1.01.087-.248-1.7-1.653-2.53-1.716-2.566l-.344-.199-.226.327c-.284.438-.49.922-.612 1.43-.23.97-.09 1.882.403 2.661-.595.332-1.55.413-1.744.42H.751a.751.751 0 0 0-.75.748 11.376 11.376 0 0 0 .692 4.062c.545 1.428 1.355 2.48 2.41 3.124 1.18.723 3.1 1.137 5.275 1.137.983.003 1.963-.086 2.93-.266a12.248 12.248 0 0 0 3.823-1.389c.98-.567 1.86-1.288 2.61-2.136 1.252-1.418 1.998-2.997 2.553-4.4h.221c1.372 0 2.215-.549 2.68-1.009.309-.293.55-.65.707-1.046l.098-.288Z"/></svg>
+      <span class="tech-name">Docker</span>
+    </div>
+    <div class="tech-item">
+      <svg viewBox="0 0 24 24" fill="#F05032"><path d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.215 1.379-.07 1.889.441.516.515.658 1.258.438 1.9l2.658 2.66c.645-.223 1.387-.078 1.9.435.721.72.721 1.884 0 2.604-.719.719-1.881.719-2.6 0-.539-.541-.674-1.337-.404-1.996L12.86 8.955v6.525c.176.086.342.203.488.348.713.721.713 1.883 0 2.6-.719.721-1.889.721-2.609 0-.719-.719-.719-1.879 0-2.598.182-.18.387-.316.605-.406V8.835c-.217-.091-.424-.222-.604-.401-.545-.545-.676-1.342-.396-2.009L7.636 3.7.45 10.881c-.6.605-.6 1.584 0 2.189l10.48 10.477c.604.604 1.582.604 2.186 0l10.43-10.43c.605-.603.605-1.582 0-2.187"/></svg>
+      <span class="tech-name">Git</span>
+    </div>
+    <div class="tech-item">
+      <svg viewBox="0 0 24 24" fill="none"><defs><linearGradient id="pyg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#366A96"/><stop offset="100%" stop-color="#3E85B4"/></linearGradient><linearGradient id="pyg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F9C440"/><stop offset="100%" stop-color="#FFE872"/></linearGradient></defs><path d="M11.99 1.5c-5.35 0-5.02 2.32-5.02 2.32L6.98 6.5h5.1v.75H4.49S1.5 6.93 1.5 12.37c0 5.44 3.01 5.25 3.01 5.25h1.8v-2.52s-.1-3.01 2.96-3.01h5.1s2.87.05 2.87-2.77V5.02s.43-3.52-5.25-3.52zm-2.85 2.03c.52 0 .94.42.94.94s-.42.94-.94.94-.94-.42-.94-.94.42-.94.94-.94z" fill="url(#pyg1)"/><path d="M12.01 22.5c5.35 0 5.02-2.32 5.02-2.32l-.01-2.68H11.9v-.75h7.6s2.99.32 2.99-5.12c0-5.44-3.01-5.25-3.01-5.25h-1.8v2.52s.1 3.01-2.96 3.01h-5.1s-2.87-.05-2.87 2.77v4.25s-.43 3.57 5.26 3.57zm2.85-2.03c-.52 0-.94-.42-.94-.94s.42-.94.94-.94.94.42.94.94-.42.94-.94.94z" fill="url(#pyg2)"/></svg>
+      <span class="tech-name">Python</span>
+    </div>
+  </div>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-inner">
-      <p class="footer-connect-label">Let's connect</p>
-      <p class="footer-connect-sub">Find me on these platforms</p>
-      <div class="footer-icons">
-        <a href="https://github.com/" target="_blank" rel="noopener" class="footer-icon-btn" aria-label="GitHub">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z" />
-          </svg>
-        </a>
-        <a href="https://twitter.com/" target="_blank" rel="noopener" class="footer-icon-btn" aria-label="Twitter / X">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-          </svg>
-        </a>
-        <a href="https://www.linkedin.com/in/partrick-mbithi-05167b32b/" target="_blank" rel="noopener"
-          class="footer-icon-btn" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-          </svg>
-        </a>
-        <a href="/cdn-cgi/l/email-protection#4c3c2d3823212e25382425790c2b212d2520622f2321" class="footer-icon-btn"
-          aria-label="Email">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-            stroke-linejoin="round">
-            <rect x="2" y="4" width="20" height="16" rx="2" />
-            <path d="M22 7l-10 7L2 7" />
-          </svg>
-        </a>
+  <div class="logoloop-section section-header">
+    <p class="section-title">Also familiar with</p>
+    <p class="section-sub">Other tools in the orbit.</p>
+  </div>
+  <div class="logoloop-wrap" id="ll-container" style="padding: 16px 0;">
+    <div class="ll-track" id="ll-track"></div>
+  </div>
+
+  <!-- GITHUB CONTRIBUTIONS -->
+  <div class="github-section section-header" id="github">
+    <p class="section-title">GitHub Contributions</p>
+    <p class="github-handle"><a href="https://github.com/" target="_blank" rel="noopener">@dev-patrick-kz</a></p>
+  </div>
+  <div class="contrib-card">
+    <div class="contrib-img-wrap">
+      <img id="contrib-chart" src="https://ghchart.rshah.org/3b6d11/ai-patrick" alt="Patrick Kilonzo's GitHub contribution chart" style="width:100%;display:block;border-radius:6px;" onerror="document.getElementById('contrib-fallback').style.display='flex';this.style.display='none';"/>
+      <div id="contrib-fallback" style="display:none;align-items:center;justify-content:center;padding:32px;color:var(--text-muted);font-size:13px;gap:8px;flex-direction:column;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="opacity:0.4;"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        <span>Could not load contribution chart. <a href="https://github.com/ai-patrick" target="_blank" rel="noopener" style="color:var(--text-secondary);">View on GitHub →</a></span>
       </div>
-      <hr class="footer-divider" />
-      <p class="footer-copy">&copy; 2026 Patrick Kilonzo.</p>
     </div>
-  </footer>
+    <div class="contrib-footer" style="min-width:unset;margin-top:12px;">
+      <a href="https://github.com/ai-patrick" target="_blank" rel="noopener" style="font-size:12px;color:var(--text-muted);text-decoration:none;border-bottom:1px solid var(--border);transition:color 0.2s;">View full profile on GitHub</a>
+      <div class="legend">
+        <span>Less</span>
+        <div class="legend-cell" style="background:#e8e6e0;"></div>
+        <div class="legend-cell" style="background:#c0dd97;"></div>
+        <div class="legend-cell" style="background:#97c459;"></div>
+        <div class="legend-cell" style="background:#639922;"></div>
+        <div class="legend-cell" style="background:#3b6d11;"></div>
+        <span>More</span>
+      </div>
+    </div>
+  </div>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-  <script src="script.js"></script>
+  <p style="text-align:center;font-size:13px;color:var(--text-muted);margin-top:48px;font-style:italic;font-weight:300;">If you've read this far, you might be interested in what I do.</p>
+
+  <!-- PROOF OF WORK -->
+  <div class="section-header" id="work" style="margin-top:64px;">
+    <p class="section-title">Proof of Work</p>
+    <p class="section-sub">Things I've shipped that I'm proud of.</p>
+  </div>
+  <div class="pow-grid" style="margin-top:20px;">
+    <a href="https://alina906vibes.netlify.app/" target="_blank" rel="noopener" class="pow-card">
+      <span class="pow-tag">Full-Stack · Web3</span>
+      <h3 class="pow-title">Alina906Vibes — Blockchain-Powered Rental Platform</h3>
+      <p class="pow-desc">A premium property rental marketplace for Kenya — Nairobi, Mombasa, Diani and beyond. Bookings are secured on-chain via Polygon Amoy, with wallet-based authentication, KYC verification, and an interactive map to explore curated stays across categories from apartments to villas.</p>
+      <div class="pow-stack"><span>React</span><span>Node.js</span><span>Polygon</span><span>Web3</span><span>Netlify</span></div>
+    </a>
+    <a href="https://github.com/Kiamapatrick/Alina906Vibes-backend" target="_blank" rel="noopener" class="pow-card">
+      <span class="pow-tag">Backend · API</span>
+      <h3 class="pow-title">Alina906Vibes — Backend & Smart Contract Layer</h3>
+      <p class="pow-desc">The server and blockchain backbone of Alina906Vibes. Handles property listings, availability, booking logic, identity verification, and on-chain transaction coordination via Polygon Amoy smart contracts.</p>
+      <div class="pow-stack"><span>Node.js</span><span>Express</span><span>Solidity</span><span>Polygon</span><span>PostgreSQL</span></div>
+    </a>
+    <a href="https://github.com/ai-patrick/car-yard" target="_blank" rel="noopener" class="pow-card">
+      <span class="pow-tag">Full-Stack</span>
+      <h3 class="pow-title">Car Yard — Vehicle Marketplace</h3>
+      <p class="pow-desc">A full-stack car listing and marketplace platform. Browse, search, and manage vehicle inventory with a clean interface built for buyers and dealers alike.</p>
+      <div class="pow-stack"><span>React</span><span>Node.js</span><span>Express</span><span>PostgreSQL</span></div>
+    </a>
+  </div>
+
+  <!-- BLOGS -->
+  <div class="section-header" id="blogs" style="margin-top:64px;">
+    <p class="section-title">Blogs</p>
+    <p class="section-sub">Writing about what I build and what I learn.</p>
+  </div>
+  <div class="blog-list">
+    <a href="#" class="blog-item"><div class="blog-item-left"><div class="blog-item-title">Why I stopped using useEffect for data fetching</div><div class="blog-item-date">Mar 2025</div></div><span class="blog-item-arrow">→</span></a>
+    <a href="#" class="blog-item"><div class="blog-item-left"><div class="blog-item-title">Building a payment API that handles East African edge cases</div><div class="blog-item-date">Jan 2025</div></div><span class="blog-item-arrow">→</span></a>
+    <a href="#" class="blog-item"><div class="blog-item-left"><div class="blog-item-title">The case for co-locating your database migrations</div><div class="blog-item-date">Nov 2024</div></div><span class="blog-item-arrow">→</span></a>
+    <a href="#" class="blog-item"><div class="blog-item-left"><div class="blog-item-title">Docker Compose for local dev: a practical guide</div><div class="blog-item-date">Sep 2024</div></div><span class="blog-item-arrow">→</span></a>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <p class="cta-line">If you've read this far, you might be interested in what I do.</p>
+    <a href="/cdn-cgi/l/email-protection#c4b4a5b0aba9a6adb0acadf184a3a9a5ada8eaa7aba9" class="cta-btn"><div class="avatar-mini">P</div>Book a Free Call</a>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p class="footer-connect-label">Let's connect</p>
+    <p class="footer-connect-sub">Find me on these platforms</p>
+    <div class="footer-icons">
+      <a href="https://github.com/" target="_blank" rel="noopener" class="footer-icon-btn" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg></a>
+      <a href="https://twitter.com/" target="_blank" rel="noopener" class="footer-icon-btn" aria-label="Twitter / X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      <a href="https://linkedin.com/" target="_blank" rel="noopener" class="footer-icon-btn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+      <a href="/cdn-cgi/l/email-protection#4c3c2d3823212e25382425790c2b212d2520622f2321" class="footer-icon-btn" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg></a>
+    </div>
+    <hr class="footer-divider" />
+    <p class="footer-copy">&copy; 2025 Patrick Kilonzo.</p>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script src="script.js"></script>
 </body>
-
 </html>
