@@ -1,5 +1,5 @@
 // ── SCROLL NAV ──
-(function() {
+(function () {
   const nav = document.getElementById('navbar');
   const THRESHOLD = 60;
   function update() {
@@ -18,7 +18,7 @@ function closeMobile() {
   document.getElementById('hamburger').classList.remove('open');
   document.getElementById('nav-mobile').classList.remove('open');
 }
-(function() {
+(function () {
   const btn = document.getElementById('hamburger');
   const menu = document.getElementById('nav-mobile');
   if (!btn || !menu) return;
@@ -34,7 +34,7 @@ function toggleTheme() {
   document.documentElement.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
   localStorage.setItem('theme', document.documentElement.getAttribute('data-theme'));
 }
-(function() {
+(function () {
   const saved = localStorage.getItem('theme');
   if (saved) document.documentElement.setAttribute('data-theme', saved);
   else if (window.matchMedia('(prefers-color-scheme: dark)').matches)
@@ -95,4 +95,56 @@ const loopItems = [
     requestAnimationFrame(step);
   }
   requestAnimationFrame(step);
+})();
+
+// ── SCROLL REVEAL (Intersection Observer) ──
+(function () {
+  const revealEls = document.querySelectorAll('.reveal');
+  if (!revealEls.length) return;
+
+  // Respect prefers-reduced-motion
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    revealEls.forEach(el => el.classList.add('show'));
+    return;
+  }
+
+  // To group items that enter at the same time and stagger them
+  let revealQueue = [];
+  let isProcessingQueue = false;
+
+  const processQueue = () => {
+    if (revealQueue.length === 0) {
+      isProcessingQueue = false;
+      return;
+    }
+    const el = revealQueue.shift();
+    requestAnimationFrame(() => {
+      el.classList.add('show');
+    });
+    // Add ~100ms delay between grouped elements
+    setTimeout(processQueue, 100);
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      let triggered = false;
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          revealQueue.push(entry.target);
+          observer.unobserve(entry.target); // Trigger once
+          triggered = true;
+        }
+      });
+      if (triggered && !isProcessingQueue) {
+        isProcessingQueue = true;
+        processQueue();
+      }
+    },
+    {
+      threshold: 0.2,  // Trigger when 20% visible
+      rootMargin: '0px', 
+    }
+  );
+
+  revealEls.forEach((el) => observer.observe(el));
 })();
