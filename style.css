@@ -42,6 +42,90 @@ body {
 }
 [data-theme="dark"] body { background: #0e0e12; }
 
+/* ── TECHNICAL FRAMING — VERTICAL RAILS ── */
+/* Anchored to the left/right edges of the centered 680px column */
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 1.5px;
+  background: var(--border);
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0.85;
+}
+body::before { left: calc(50% - 340px); }
+body::after  { left: calc(50% + 340px); }
+
+body {
+  position: relative;
+  overflow-x: clip;
+}
+
+/* ── SECTION DIVIDER — FULL-WIDTH DOUBLE HORIZONTAL LINES ── */
+/* Breaks out of the 680px container to span the entire viewport */
+.section-divider {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 32px 0;
+}
+.section-divider::before,
+.section-divider::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  background: var(--border);
+  opacity: 0.85;
+}
+
+/* Small cross-hair mark at the center of each divider */
+.section-divider-mark {
+  width: 7px;
+  height: 7px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.section-divider-mark::before,
+.section-divider-mark::after {
+  content: '';
+  position: absolute;
+  background: var(--border);
+  opacity: 0.5;
+}
+.section-divider-mark::before {
+  width: 1px;
+  height: 7px;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+}
+.section-divider-mark::after {
+  width: 7px;
+  height: 1px;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+/* Hide vertical rails on small screens */
+@media (max-width: 900px) {
+  body::before,
+  body::after {
+    display: none;
+  }
+}
+
 /* ── NAV ── */
 .glass-surface__filter { display: none; }
 
