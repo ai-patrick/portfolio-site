@@ -72,7 +72,7 @@ class ChatWidget {
     this.messages = [];
     this.isStreaming = false;
     this.abortController = null;
-    this.endpoint = 'https://patrick-chat-api.vercel.app/api/chat'; // Update after Vercel deploy
+    this.endpoint = 'https://portfolio-site-patrick-chat-api.vercel.app/api/chat';
     
     this.init();
   }

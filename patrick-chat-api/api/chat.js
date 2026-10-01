@@ -87,8 +87,10 @@ const ChatRequestSchema = z.object({
 // Vercel Function Handler
 // ──────────────────────────────────────────────
 export default async function handler(req, res) {
-  // CORS - allow your Netlify frontend
-  res.setHeader('Access-Control-Allow-Origin', 'https://your-netlify-site.netlify.app');
+  // CORS - temporarily allow all origins for testing
+  // TODO: Replace with your actual Netlify URL (e.g., https://your-site.netlify.app)
+  const allowedOrigin = process.env.ALLOWED_ORIGIN || '*';
+  res.setHeader('Access-Control-Allow-Origin', allowedOrigin);
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
