@@ -49,7 +49,7 @@ ROLE: Computer Science Student & Full-Stack Engineer
 UNIVERSITY: Jomo Kenyatta University of Agriculture and Technology (JKUAT)
 LOCATION: Kenya
 
-CONTACT: contact@example.com
+CONTACT: patombithi5@gmail.com
 GITHUB: https://github.com/ai-patrick
 
 Patrick is currently studying Computer Science at JKUAT while developing his skills through hands-on software projects.
