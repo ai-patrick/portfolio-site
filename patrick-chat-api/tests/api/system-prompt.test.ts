@@ -57,7 +57,7 @@ describe('System Prompt Enforcement', () => {
     const callArgs = mockCreate.mock.calls[0][0];
     expect(callArgs.messages[0].role).toBe('system');
     expect(callArgs.messages[0].content).toContain('Patrick Kilonzo');
-    expect(callArgs.messages[0].content).toContain('ONLY answer questions about Patrick');
+    expect(callArgs.messages[0].content).toContain('You ONLY answer questions related to Patrick Kilonzo');
   });
 
   it('blocks off-topic questions via system prompt', async () => {

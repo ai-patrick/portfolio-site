@@ -546,8 +546,7 @@ footer {
   transform: translateY(-2px);
 }
 .chat-widget svg { width: 18px; height: 18px; flex-shrink: 0; }
-.chat-label { display: none; }
-.chat-widget:hover .chat-label { display: inline; }
+.chat-label { display: inline; }
 
 /* ── CHAT MODAL ── */
 .chat-modal {

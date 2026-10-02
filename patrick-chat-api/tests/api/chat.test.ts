@@ -102,7 +102,7 @@ describe('Chat API Handler', () => {
 
   it('sets CORS headers', async () => {
     await handler(req, res);
-    expect(res.headers['Access-Control-Allow-Origin']).toBe('https://your-netlify-site.netlify.app');
+    expect(res.headers['Access-Control-Allow-Origin']).toBe('*');
     expect(res.headers['Access-Control-Allow-Methods']).toContain('POST');
   });
 

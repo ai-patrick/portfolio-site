@@ -166,4 +166,13 @@ describe('Chat Widget DOM Structure', () => {
       expect(input.validity.valid).toBe(true);
     });
   });
+
+  describe('Chat Trigger Uniqueness', () => {
+    it('has exactly one chat trigger button with correct ID', () => {
+      const triggers = document.querySelectorAll('.chat-widget');
+      expect(triggers.length).toBe(1);
+      expect(triggers[0].id).toBe('chatTrigger');
+      expect(triggers[0].textContent).toContain('Chat with Patrick');
+    });
+  });
 });
